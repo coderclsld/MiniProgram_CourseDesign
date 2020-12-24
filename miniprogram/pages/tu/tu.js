@@ -1,13 +1,10 @@
-// pages/index/index.js
-const { $Message } = require('../../components/iview/base/index');
+// pages/tu/tu.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    open: false,
-    scrollTop: 0,
     list:[
       {
         src:"../../images/3.jpg",
@@ -24,33 +21,10 @@ Page({
       {
         src:"../../images/1.jpg",
         name:"猫咪不会1写作"
-      },
-      {
-        src:"../../images/2.jpg",
-        name:"猫咪不会写1作"
-      },
-      {
-        src:"../../images/1.jpg",
-        name:"猫咪不会1写作"
-      },
+      }
     ]
   },
-  aa: function(e){
-    console.log("进入了tap_ch函数")
-    if(this.data.open){
-      console.log(this.data.open)
-      this.setData({
-        open : false
-      });
-      console.log(this.data.open)
-    }else{
-      console.log(this.data.open)
-      this.setData({
-        open : true
-      });
-      console.log(this.data.open)
-    }
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

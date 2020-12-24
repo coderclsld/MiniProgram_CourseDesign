@@ -1,0 +1,17 @@
+/* pages/tu/tu.wxss */.swiper {
+  margin-right:10px;
+  margin-left:10px;
+  margin-top: 10px;
+}
+.a{
+ flex-direction: row;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.b{
+  width: 44%;
+  margin-right: 10px;
+  margin-left:10px;
+  margin-bottom: 10px;
+  border: 1px dotted;
+}

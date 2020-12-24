@@ -110,3 +110,23 @@ page,
   transform: rotate(0deg) scale(.8) translate(75%, 0%);
   -webkit-transform: rotate(0deg) scale(.8) translate(75%, 0%);
 }
+
+.swiper {
+  margin-right:10px;
+  margin-left:10px;
+  margin-top: 10px;
+}
+.a{
+ flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  float:left;
+}
+.b{
+  width: 44%;
+  margin-right: 10px;
+  margin-left:10px;
+  margin-bottom: 10px;
+
+  float:left;
+}

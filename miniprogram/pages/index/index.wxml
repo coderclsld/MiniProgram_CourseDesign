@@ -55,5 +55,49 @@
   </i-sticky>
   <view class="page-top {{open?'c-state1':''}}">
     
+    <view class="swiper" >
+      <swiper indicator-dots autoplay interval="3000" duration="1000" style="height:200px">
+        <swiper-item>
+          <view>
+            <image src="../../images/p1.png" style="width:100%;"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view>
+            <image src="../../images/p2.jpg" style="width:100%;"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view>
+            <image src="../../images/p3.jpg" style="width:100%;"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view>
+            <image src="../../images/p4.jpg" style="width:100%;"></image>
+          </view>
+        </swiper-item>
+      </swiper>
+      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex;margin-top:10px"  >
+<view style="height: 30px; display: inline-block;margin-right:20px;">启蒙图书</view>
+<view style="height: 30px; display: inline-block;margin-right:20px;">思想品德教育图书</view>
+<view style="height: 30px; display: inline-block;margin-right:20px;">科普图书</view>
+<view style="height: 30px; display: inline-block;margin-right:20px;">历史图书</view>
+<view style="height: 30px; display: inline-block;margin-right:20px;">卡通图书</view>
+<view style="height: 30px; display: inline-block;margin-right:20px;">文学图书</view>
+<view style="height: 30px; display: inline-block;">歌谣图书</view>
+</scroll-view>
+    </view >
+    <view>
+  <scroll-view scroll-y="true" style="height:360px"  enable-flex="true">
+     <view class="a" wx:for="{{list}}">
+    <view class="b">
+      <image src="{{item.src}}" style="height:150px;width:150px;margin-left:10px;"></image>
+      <view style="width:150px;text-align: center;">{{item.name}}</view>
+    </view>
+  </view>
+</scroll-view>
+</view>
   </view>
 </view>
+
