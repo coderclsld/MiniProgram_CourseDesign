@@ -13,10 +13,10 @@
       <view class="wc" bindtap="tochat">
         <text>聊天消息</text>
       </view>
-      <view class="wc">
+      <view class="wc" bindtap="fabu">
         <text>发布书籍</text>
       </view>
-      <view class="wc">
+      <view class="wc" bindtap="chakanfabu">
         <text>查看发布</text>
       </view>
       <view class="wc">
@@ -84,6 +84,7 @@
           </view>
         </view>
       </scroll-view>
+
     </view>
     <view class="page-top {{open?'c-state1':''}}">
       <view class="menu-box">
@@ -107,4 +108,4 @@
       </view>
     </view>
   </view>
-</view>
+</view>  

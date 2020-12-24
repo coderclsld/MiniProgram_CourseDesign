@@ -2,7 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/chat/chat",
-    "pages/fabu/fabu"
+    "pages/fabu/fabu",
+    "pages/gouwuche/gouwuche",
+    "pages/shouchan/shouchan",
+    "pages/chakanfabu/chakanfabu"
   ],
   "usingComponents": {
     "i-row": "/components/iview/row/index",

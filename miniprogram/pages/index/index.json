@@ -1,7 +1,8 @@
 {
-    "usingComponens": {
-      "i-sticky": "../../components/iview/sticky/index",
-      "i-sticky-item": "../../components/iview/sticky-item/index",
-      "i-swipeout": "../../components/iview/swipeout/index"
-    }
+  "usingComponens": {
+    "i-sticky": "../../components/iview/sticky/index",
+    "i-sticky-item": "../../components/iview/sticky-item/index",
+    "i-swipeout": "../../components/iview/swipeout/index",
+    "van-popup": "../../components/vant/popup/index"
+  }
 }

@@ -10,7 +10,15 @@ Page({
     canIUse:true,
     open: false,
     scrollTop: 0,
-    list:[]
+    list:[],
+    show: true,
+  },
+  showPopup() {
+    this.setData({ show: true });
+  },
+
+  onClose() {
+    this.setData({ show: false });
   },
   aa: function(e){
     console.log("进入了tap_ch函数")
@@ -245,11 +253,25 @@ Page({
       }
     })
   },
+  fabu:function(){
+    wx.navigateTo({
+      url: '../fabu/fabu',
+    })
+  },
+  chakanfabu:function(){
+    wx.navigateTo({
+      url: '../chakanfabu/chakanfabu',
+    })
+  },
   buyCar:function(){
-    
+    wx.navigateTo({
+      url: '../gouwuche/gouwuche',
+    })
   },
   shouchang:function(){
-
+    wx.navigateTo({
+      url: '../shouchan/shouchan',
+    })
   },
   selectkepu:function(){
     var that = this;

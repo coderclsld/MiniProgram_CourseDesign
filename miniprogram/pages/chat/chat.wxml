@@ -1,2 +1,2 @@
 <!--miniprogram/pages/chat/chat.wxml-->
-<view>asdasd</view>
+<van-popup show="{{ show }}" round position="bottom" custom-style="height: 20%" bind:close="onClose" />
