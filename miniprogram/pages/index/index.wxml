@@ -38,7 +38,7 @@
     </view>
   </view> -->
   <i-sticky scrollTop="{{scrollTop}}">
-<button bindtap="aa" style="margin-top:50rpx">test</button>
+<button bindtap="aa" style="margin-top:50rpx;float:left;margin-left:-60px;margin-right:-60px;" >test</button>
     <view>
       <view>
         <view class="weui-search-bar">

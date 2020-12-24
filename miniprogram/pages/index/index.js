@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    open: false,
+    open: true,
     mark: 0,
     newmark: 0,
     startmark: 0,
