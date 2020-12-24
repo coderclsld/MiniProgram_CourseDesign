@@ -1,5 +1,7 @@
 // pages/index/index.js
-const { $Message } = require('../../components/iview/base/index');
+const {
+  $Message
+} = require('../../components/iview/base/index');
 Page({
 
   /**
@@ -8,22 +10,24 @@ Page({
   data: {
     open: false,
     scrollTop: 0,
-   
+    nickName: "",
+    avatarUrl: "",
+    canIUse:true
   },
 
 
-  aa: function(e){
+  aa: function (e) {
     console.log("进入了tap_ch函数")
-    if(this.data.open){
+    if (this.data.open) {
       console.log(this.data.open)
       this.setData({
-        open : false
+        open: false
       });
       console.log(this.data.open)
-    }else{
+    } else {
       console.log(this.data.open)
       this.setData({
-        open : true
+        open: true
       });
       console.log(this.data.open)
     }
@@ -34,6 +38,28 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  bindGetUserInfo: function () {
+    var that = this;
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.userInfo
+        var Name = userInfo.nickName
+        var avatarUrl = userInfo.avatarUrl
+        var gender = userInfo.gender //性别 0：未知、1：男、2：女
+        var province = userInfo.province
+        var city = userInfo.city
+        var country = userInfo.country
+        that.setData({
+          canIUse:false,
+          nickName: Name,
+          avatarUrl: avatarUrl
+        })
+      },
+      fail: function (res) {
+        console.log("失败")
+      }
+    })
   },
 
   /**
