@@ -91,7 +91,7 @@
     <view>
   <scroll-view scroll-y="true" style="height:360px"  enable-flex="true">
      <view class="a" wx:for="{{list}}">
-    <view class="b">
+    <view class="b" bindtap="jrym">
       <image src="{{item.src}}" style="height:150px;width:150px;margin-left:10px;"></image>
       <view style="width:150px;text-align: center;">{{item.name}}</view>
     </view>

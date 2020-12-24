@@ -1,10 +1,11 @@
 {
-  "pages": [      
-    "pages/index/index",
-    "pages/tu/tu"
- 
-
+  "pages": [   
+    "pages/index/index"
   ],
+  "usingComponents": {
+    "i-row": "/components/iview/row/index",
+    "i-col": "/components/iview/col/index"
+  },
   "window": {
     "navigationStyle": "custom"
   },

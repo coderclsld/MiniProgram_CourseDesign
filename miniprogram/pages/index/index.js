@@ -51,6 +51,9 @@ Page({
       console.log(this.data.open)
     }
   },
+  jrym:function(){
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
