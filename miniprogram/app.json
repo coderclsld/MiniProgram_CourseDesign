@@ -1,6 +1,8 @@
 {
-  "pages": [   
-    "pages/index/index"
+  "pages": [
+    "pages/index/index",
+    "pages/chat/chat",
+    "pages/fabu/fabu"
   ],
   "usingComponents": {
     "i-row": "/components/iview/row/index",

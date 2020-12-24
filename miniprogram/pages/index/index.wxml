@@ -1,12 +1,16 @@
-<!--pages/index/index.wxml-->
 <view class="page">
   <view class="page-bottom">
     <view class="page-content">
-      <view class="wc">
-        <image src="../../images/create-collection.png" style="width:100rpx;height:100rpx;"></image>
-        <text>clsld</text>
+      <view class="wc" wx:if="{{canIUse}}">
+        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
       </view>
-      <view class="wc">
+      <view class="wc" wx:else>
+        <i-row>
+          <image src="{{avatarUrl}}" style="width:100rpx;height:100rpx;"></image>
+          <view style="margin-left:10rpx"><text>{{nickName}}</text></view>
+        </i-row>
+      </view>
+      <view class="wc" bindtap="tochat">
         <text>聊天消息</text>
       </view>
       <view class="wc">
@@ -20,25 +24,8 @@
       </view>
     </view>
   </view>
-  <!-- <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top"
-    style="{{translate}}">
-    <view class="container">
-      <view class="page-body">
-        <view class="page-section page-section-spacing swiper">
-          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
-            duration="{{duration}}">
-            <block wx:for="{{background}}" wx:key="*this">
-              <swiper-item>
-                <view class="swiper-item {{item}}">xfv</view>
-              </swiper-item>
-            </block>
-          </swiper>
-        </view>
-      </view>
-    </view>
-  </view> -->
   <i-sticky scrollTop="{{scrollTop}}">
-<button bindtap="aa" style="margin-top:50rpx;float:left;margin-left:-60px;margin-right:-60px;" >test</button>
+    <button bindtap="aa" style="margin-top:50rpx;float:left;margin-left:-60px;margin-right:-60px;">Menu</button>
     <view>
       <view>
         <view class="weui-search-bar">
@@ -54,8 +41,8 @@
     </view>
   </i-sticky>
   <view class="page-top {{open?'c-state1':''}}">
-    
-    <view class="swiper" >
+
+    <view class="swiper">
       <swiper indicator-dots autoplay interval="3000" duration="1000" style="height:200px">
         <swiper-item>
           <view>
@@ -78,26 +65,46 @@
           </view>
         </swiper-item>
       </swiper>
-      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex;margin-top:10px"  >
-<view style="height: 30px; display: inline-block;margin-right:20px;">启蒙图书</view>
-<view style="height: 30px; display: inline-block;margin-right:20px;">思想品德教育图书</view>
-<view style="height: 30px; display: inline-block;margin-right:20px;">科普图书</view>
-<view style="height: 30px; display: inline-block;margin-right:20px;">历史图书</view>
-<view style="height: 30px; display: inline-block;margin-right:20px;">卡通图书</view>
-<view style="height: 30px; display: inline-block;margin-right:20px;">文学图书</view>
-<view style="height: 30px; display: inline-block;">歌谣图书</view>
-</scroll-view>
-    </view >
+      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex;margin-top:10px">
+        <view style="height: 30px; display: inline-block;margin-right:20px;" bindtap="selectqimen">启蒙图书</view>
+        <!-- <view style="height: 30px; display: inline-block;margin-right:20px;" bindtap="selectsixian">思想品德教育图书</view> -->
+        <view style="height: 30px; display: inline-block;margin-right:20px;" bindtap="selectkepu">科普图书</view>
+        <view style="height: 30px; display: inline-block;margin-right:20px;" bindtap="selectlishi">历史图书</view>
+        <view style="height: 30px; display: inline-block;margin-right:20px;" bindtap="selectkaton">卡通图书</view>
+        <view style="height: 30px; display: inline-block;margin-right:20px;" bindtap="selectkaton">文学图书</view>
+        <view style="height: 30px; display: inline-block;" bindtap="selectgeyao">歌谣图书</view>
+      </scroll-view>
+    </view>
     <view>
-  <scroll-view scroll-y="true" style="height:360px"  enable-flex="true">
-     <view class="a" wx:for="{{list}}">
-    <view class="b" bindtap="jrym">
-      <image src="{{item.src}}" style="height:150px;width:150px;margin-left:10px;"></image>
-      <view style="width:150px;text-align: center;">{{item.name}}</view>
+      <scroll-view scroll-y="true" style="height:360px" enable-flex="true">
+        <view class="a" wx:for="{{list}}">
+          <view class="b" bindtap="jrym">
+            <image src="{{item.fileid}}" style="height:150px;width:150px;margin-left:10px;"></image>
+            <view style="width:150px;text-align: center;">{{item.name}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="page-top {{open?'c-state1':''}}">
+      <view class="menu-box">
+        <view class="navbar {{ play?'active':'' }}">
+          <view class="btn" bindtap="changePlay">
+            <view class="line" animation="{{ !play?line1CloseAn:line1OpenAn }}"></view>
+            <view class="line" animation="{{ !play?line2CloseAn:line2OpenAn }}"></view>
+            <view class="title" animation="{{ !play?titleCloseAn:titleOpenAn }}">
+              菜单
+            </view>
+          </view>
+        </view>
+        <view class="menu">
+          <view animation="{{ !play?btn4Close:btn2Open }}" bindtap="buyCar">
+            <text>购物车</text>
+          </view>
+          <view animation="{{ !play?btn3Close:btn1Open }}" bindtap="shouchang">
+            <text>收藏夹</text>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
-</scroll-view>
 </view>
-  </view>
-</view>
-
