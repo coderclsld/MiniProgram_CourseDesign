@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/qm/qm1",
     "pages/index/index",
     "pages/chat/chat",
     "pages/fabu/fabu",
     "pages/gouwuche/gouwuche",
     "pages/shouchan/shouchan",
+
     "pages/chakanfabu/chakanfabu"
   ],
   "usingComponents": {

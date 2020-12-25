@@ -385,5 +385,10 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  toDetailsTap: function(e) {
+    wx.navigateTo({
+      url: "/pages/qm/qm1"
+    })
+  },
 })

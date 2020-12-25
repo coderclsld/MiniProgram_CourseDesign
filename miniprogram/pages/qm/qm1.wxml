@@ -1,0 +1,45 @@
+<swiper indicator-dots autoplay interval="3000" duration="1000" style="height:250px;margin-top:70px;">
+        <swiper-item>
+          <view>
+            <image src="../../images/1.jpg" style="width:100%;"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view>
+            <image src="../../images/2.jpg" style="width:100%;"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view>
+            <image src="../../images/3.jpg" style="width:100%;"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view>
+            <image src="../../images/4.jpg" style="width:100%;"></image>
+          </view>
+        </swiper-item>
+      </swiper>
+<view class="goods-title">猫咪不会写作</view>
+<view class="goods-info-fx">
+      <view class='item'>
+        <image src='../../images/share1.png'></image>
+        <button open-type='share'></button>
+      </view>
+</view>
+<view style="margin-left:4%;width:92%;height:1px;background:rgba(39, 39, 39, 0.089);margin-bottom:16px"></view>
+<view style="margin-left:16px;margin-bottom:28px;">图书介绍</view>
+<view style="margin-left:16px;">
+  <image src="../../images/2.jpg" style="width:95%"></image>
+  <image src="../../images/3.jpg" style="width:95%"></image>
+  <image src="../../images/4.jpg" style="width:95%"></image>
+  <image src="../../images/5.jpg" style="width:95%"></image>
+</view> 
+<view style="position: fixed;">
+<view >		
+    <view class="xq" ><view style="font-size:20px">❤</view><view style="margin-top:-5px">收藏</view>
+    <view style="margin-top:-38px;margin-left:-40px"><button>借入图书</button></view>
+  </view>
+    
+</view>
+</view>
