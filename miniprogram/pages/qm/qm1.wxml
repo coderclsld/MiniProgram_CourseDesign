@@ -1,45 +1,37 @@
-<swiper indicator-dots autoplay interval="3000" duration="1000" style="height:250px;margin-top:70px;">
-        <swiper-item>
-          <view>
+<view style="margin-top:px">
             <image src="../../images/1.jpg" style="width:100%;"></image>
           </view>
-        </swiper-item>
-        <swiper-item>
-          <view>
-            <image src="../../images/2.jpg" style="width:100%;"></image>
-          </view>
-        </swiper-item>
-        <swiper-item>
-          <view>
-            <image src="../../images/3.jpg" style="width:100%;"></image>
-          </view>
-        </swiper-item>
-        <swiper-item>
-          <view>
-            <image src="../../images/4.jpg" style="width:100%;"></image>
-          </view>
-        </swiper-item>
-      </swiper>
 <view class="goods-title">猫咪不会写作</view>
 <view class="goods-info-fx">
       <view class='item'>
-        <image src='../../images/share1.png'></image>
-        <button open-type='share'></button>
+        <image src='../../images/share1.png' style="width:20px;height:20px"></image>
+        <button open-type='share' style="margin-top:-38px;margin-left:-40px"></button>
       </view>
+      
 </view>
-<view style="margin-left:4%;width:92%;height:1px;background:rgba(39, 39, 39, 0.089);margin-bottom:16px"></view>
-<view style="margin-left:16px;margin-bottom:28px;">图书介绍</view>
-<view style="margin-left:16px;">
-  <image src="../../images/2.jpg" style="width:95%"></image>
-  <image src="../../images/3.jpg" style="width:95%"></image>
-  <image src="../../images/4.jpg" style="width:95%"></image>
-  <image src="../../images/5.jpg" style="width:95%"></image>
-</view> 
-<view style="position: fixed;">
-<view >		
-    <view class="xq" ><view style="font-size:20px">❤</view><view style="margin-top:-5px">收藏</view>
-    <view style="margin-top:-38px;margin-left:-40px"><button>借入图书</button></view>
-  </view>
+<view class="p" ><text>¥</text>20/天</view>
+<view class="r">12人已借</view>
+ 
+<view style="margin-left:4%;margin-top:20px;width:92%;height:1px;background:rgba(39, 39, 39, 0.089);margin-bottom:16px"></view>
+
+
+
+  <van-goods-action wx:if="{{!curGoodsKanjia}}" >
+   
+    <van-icon name="chat-o" style="margin-top:-15px;margin-left:40px;"></van-icon>
+   <view style="margin-left:-19px;margin-top:15px;font-size:12px">沟通</view>
+   <van-icon name="{{faved?'like':'like-o'}}" style="margin-top:-15px;margin-left:40px;"></van-icon>
+   <view style="margin-left:-19px;margin-top:15px;font-size:12px">收藏</view>
+    <van-goods-action-button
+      wx:if="{{!goodsDetail.basicInfo.pingtuan}}"
+      text="图书借入"
+      type="warning"
+      bind:click="{{goodsDetailSkuShowType==0?'toAddShopCar':'addShopCar'}}"
+      style="margin-left:30px;"
+    />
     
-</view>
-</view>
+  </van-goods-action>
+
+    
+
+

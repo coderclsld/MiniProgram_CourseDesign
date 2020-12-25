@@ -1,4 +1,5 @@
 {
+  "navigationStyle": "custom",
   "usingComponens": {
     "i-sticky": "../../components/iview/sticky/index",
     "i-sticky-item": "../../components/iview/sticky-item/index",

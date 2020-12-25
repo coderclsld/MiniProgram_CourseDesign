@@ -1,3 +1,11 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "图书详情",
+  "navigationBarBackgroundColor":  "#E0E0E0",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "van-goods-action-icon":"../../components/vant/goods-action-icon",
+    "van-goods-action-button":"../../components/vant/goods-action-button",
+    "van-goods-action":"../../components/vant/goods-action",
+    "van-icon":"../../components/vant/icon"
+  }
 }
