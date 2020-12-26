@@ -9,7 +9,7 @@
       </view>
       
 </view>
-<view class="p" ><text>¥</text>20/天</view>
+<view class="p" ><text>¥</text>{{goods.price}}/天</view>
 <view class="r">12人已借</view>
  
 <view style="margin-left:4%;margin-top:20px;width:92%;height:1px;background:rgba(39, 39, 39, 0.089);margin-bottom:16px"></view>
@@ -20,16 +20,30 @@
    
     <van-icon name="chat-o" style="margin-top:-15px;margin-left:40px;"></van-icon>
    <view style="margin-left:-19px;margin-top:15px;font-size:12px">沟通</view>
-   <van-icon name="{{faved?'like':'like-o'}}" style="margin-top:-15px;margin-left:40px;"></van-icon>
-   <view style="margin-left:-19px;margin-top:15px;font-size:12px" bindtap="shouchan">收藏</view>
+   <van-icon name="{{faved?'like':'like-o'}}" style="margin-top:-15px;margin-left:40px;" wx:if="{{faved}}" bindtap="shouchan"></van-icon>
+   <van-icon name="{{faved?'like':'like-o'}}" style="margin-top:-15px;margin-left:40px;" wx:else bindtap="shouchan"></van-icon>
+
+   <view style="margin-left:-26px;margin-top:15px;font-size:12px;margin-right:-5px" bindtap="shouchan"   wx:if="{{isAdd}}">已收藏</view>
+   <view style="margin-left:-19px;margin-top:15px;font-size:12px" bindtap="shouchan" wx:else>收藏</view>
+ 
+
+   <van-goods-action-button
+    wx:if="{{isA}}"
+      text="取消借入"
+      type="warning"
+      bind:click="{{goodsDetailSkuShowType==0?'toAddShopCar':'addShopCar'}}"
+      style="margin-left:30px;"
+      bindtap="jieru"
+    />
     <van-goods-action-button
-      wx:if="{{!goodsDetail.basicInfo.pingtuan}}"
+      wx:else
       text="图书借入"
       type="warning"
       bind:click="{{goodsDetailSkuShowType==0?'toAddShopCar':'addShopCar'}}"
       style="margin-left:30px;"
       bindtap="jieru"
     />
+  
     
   </van-goods-action>
 
