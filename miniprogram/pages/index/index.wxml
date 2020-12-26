@@ -101,10 +101,12 @@
         </view>
         <view class="menu">
           <view animation="{{ !play?btn4Close:btn2Open }}" bindtap="buyCar">
-            <text>购物车</text>
+            <navigator url="../gouwuche/gouwuche?openid={{openid}}"><text>买过的</text></navigator>
+            
           </view>
           <view animation="{{ !play?btn3Close:btn1Open }}" bindtap="shouchang">
-            <text>收藏夹</text>
+            <navigator url="../shouchan/shouchan?openid={{openid}}"><text>收藏夹</text></navigator>
+            
           </view>
         </view>
       </view>

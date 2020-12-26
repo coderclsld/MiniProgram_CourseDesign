@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "查看发布",
+  "navigationBarBackgroundColor":  "#fff",
+  "navigationBarTextStyle": "black"
 }

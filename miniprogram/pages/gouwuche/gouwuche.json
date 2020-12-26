@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "买过的",
+  "navigationBarBackgroundColor":  "#fff",
+  "navigationBarTextStyle": "black"
 }
