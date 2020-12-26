@@ -1,4 +1,5 @@
 // miniprogram/pages/fabu/fabu.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -6,6 +7,12 @@ Page({
    */
   data: {
     array: ['启蒙图书', '科普图书', '历史图书', '卡通图书'],
+    name:"",
+    money:"",
+    leibie:"",
+    src:"",
+    img:"",
+    fileid:"",
   },
   chooseImage:function(){
     var that = this
@@ -31,6 +38,78 @@ Page({
   },
   onLoad: function (options) {
 
+  },
+fabu:function(){
+  db.collection('xytz').add({
+    data:{
+      name:this.data.name,
+      money:this.data.money,
+      leibie:this.data.leibie,
+      src:this.data.src,
+    },
+    success:function(res){
+      console.log(res)
+    }
+  })
+},
+getNumber: function (e) {
+  var that=this
+  var value = e.detail.value
+  this.setData({
+    name: value
+  })
+  console.log(that.data.name)
+},
+getNumberr: function (e) {
+  var that=this
+  var value = e.detail.value
+  this.setData({
+    money: value
+  })
+  console.log(that.data.money)
+},
+getNumberrr: function (e) {
+  var that=this
+  var value = e.detail.value
+  this.setData({
+    leibie: value
+  })
+  console.log(that.data.leibie)
+},
+sc:function(){
+  var that=this
+    // 将图片上传至云存储空间
+    wx.cloud.uploadFile({
+      // 指定上传到的云路径
+      cloudPath: 'test/'+that.data.name,
+      // 指定要上传的文件的小程序临时文件路径
+      filePath: that.data.img[0],
+      // 成功回调
+      success: res => {
+        console.log('上传成功', res.fileID)
+        that.setData({fileid:res.fileID})   
+      },
+      
+    })
+    setTimeout(function(){
+   wx.cloud.callFunction({
+     name:"fabu",
+     data:{    
+      name:that.data.name,
+      price:that.data.money,
+      fileid:that.data.fileid,
+    }
+   })
+  },1000)
+  setTimeout(function(){
+  db.collection('book').add({
+    data:{
+      fileid:that.data.fileid,
+      name:that.data.name,
+      price:that.data.money,
+    }
+  })
+},1000)
   },
 
   /**

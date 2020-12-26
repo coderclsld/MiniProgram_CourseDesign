@@ -1,10 +1,10 @@
-<view style="margin-left:85px;margin-bottom:10px"><view style="float:left">书名：</view><input type="text" style="border:1px solid;width:50%"/></view>
-<view style="margin-left:85px;margin-bottom:10px"><view style="float:left">价格：</view><input type="text" style="border:1px solid;width:10%;float:left;"/><view style="float:left">/天</view></view>
+<view style="margin-left:85px;margin-bottom:10px"><view style="float:left">书名：</view><input type="text" style="border:1px solid;width:50%" bindinput="getNumber"/></view>
+<view style="margin-left:85px;margin-bottom:10px"><view style="float:left">价格：</view><input type="text" style="border:1px solid;width:10%;float:left;" bindinput="getNumberr"/><view style="float:left">/天</view></view>
 
 <view class="section"  style="width:40%;">
   <view class="section__title" style="float:left;margin-left:85px;margin-bottom:10px">类别：</view>
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <view class="picker" style="border:1px solid;text-align: center;width:60%;height:20px;float:left;margin-left:133px;margin-top:-30px">
+    <view class="picker" style="border:1px solid;text-align: center;width:60%;height:20px;float:left;margin-left:133px;margin-top:-30px" bindinput="getNumberrr">
      {{array[index]}}
     </view>
   </picker>
@@ -13,4 +13,4 @@
   <button bindtap="chooseImage">选择图片</button>
 <image src='{{img}}' style="width:80%;margin-left:10%"></image>
 </view>
-<button>发表</button>
+<button bindtap="sc">发表</button>
