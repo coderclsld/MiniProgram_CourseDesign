@@ -21,7 +21,7 @@
       <view class="title ellipsis"><navigator url="/pages/goods-details/index?id={{item.id}}">{{item.name}}</navigator></view>
       <view class="price">¥ {{item.minPrice}}</view>
       <view class="buy-info">
-        <view class="num">已售出{{item.numberSells}}件</view>
+        <view class="num">已借{{item.numberSells}}次</view>
         <image class="car" src="/images/icon/car.svg" data-id="{{item.id}}" bindtap="addShopCar"></image>
       </view>
     </view>

@@ -1,1 +1,4 @@
 /* miniprogram/pages/fabu/fabu.wxss */
+.a{
+  color: rgb(150, 156, 161);
+}
