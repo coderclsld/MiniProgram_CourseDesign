@@ -1,7 +1,7 @@
 <view style="margin-top:px">
-            <image src="../../images/1.jpg" style="width:100%;"></image>
+            <image src="{{fileid}}" style="width:100%;"></image>
           </view>
-<view class="goods-title">猫咪不会写作</view>
+<view class="goods-title">{{goods.name}}</view>
 <view class="goods-info-fx">
       <view class='item'>
         <image src='../../images/share1.png' style="width:20px;height:20px"></image>
@@ -21,13 +21,14 @@
     <van-icon name="chat-o" style="margin-top:-15px;margin-left:40px;"></van-icon>
    <view style="margin-left:-19px;margin-top:15px;font-size:12px">沟通</view>
    <van-icon name="{{faved?'like':'like-o'}}" style="margin-top:-15px;margin-left:40px;"></van-icon>
-   <view style="margin-left:-19px;margin-top:15px;font-size:12px">收藏</view>
+   <view style="margin-left:-19px;margin-top:15px;font-size:12px" bindtap="shouchan">收藏</view>
     <van-goods-action-button
       wx:if="{{!goodsDetail.basicInfo.pingtuan}}"
       text="图书借入"
       type="warning"
       bind:click="{{goodsDetailSkuShowType==0?'toAddShopCar':'addShopCar'}}"
       style="margin-left:30px;"
+      bindtap="jieru"
     />
     
   </van-goods-action>

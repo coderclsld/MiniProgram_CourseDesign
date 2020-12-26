@@ -1,20 +1,39 @@
 // pages/qm/qm1.js
+const db  = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    fileid:'',
+    goods:[],
+    faved:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      fileid:options.fileid
+    })
+    var that = this
+    console.log(this.data.fileid)
+    db.collection("book").where({
+      fileid:this.data.fileid
+    }).get({
+      success:function(res){
+        console.log(res.data)
+        that.setData({
+          goods:res.data[0]
+        })
+      }
+    })
   },
-
+shouchan:function(){
+  
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
