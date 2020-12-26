@@ -17,7 +17,9 @@
         <text>发布书籍</text>
       </view>
       <view class="wc" bindtap="chakanfabu">
-        <text>查看发布</text>
+        <navigator url="../chakanfabu/chakanfabu?openid={{openid}}"> 
+          <text>查看发布</text>
+        </navigator>
       </view>
       <view class="wc">
         <text>帮助</text>
@@ -31,17 +33,17 @@
         <view class="weui-search-bar">
           <view class="weui-search-bar__form">
             <view class="weui-search-bar__box">
-              <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-              <input type="text" class="weui-search-bar__input" placeholder="请输入搜索内容" />
+              <input bindinput="getNumber" type="text" class="weui-search-bar__input" placeholder="请输入搜索内容" />
+              <navigator url="../sousuo/sousuo?name={{n}}">
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+              </navigator>
             </view>
           </view>
-
         </view>
       </view>
     </view>
   </i-sticky>
   <view class="page-top {{open?'c-state1':''}}">
-
     <view class="swiper">
       <swiper indicator-dots autoplay interval="3000" duration="1000" style="height:200px">
         <swiper-item>
@@ -108,4 +110,4 @@
       </view>
     </view>
   </view>
-</view>  
+</view>

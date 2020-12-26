@@ -1,45 +1,59 @@
 const db = wx.cloud.database()
+
 // pages/index/index.js
-const { $Message } = require('../../components/iview/base/index');
+const {
+  $Message
+} = require('../../components/iview/base/index');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    canIUse:true,
+    canIUse: true,
     open: false,
     scrollTop: 0,
-    list:[],
+    list: [],
     show: true,
+    n: "",
+    openid: ""
   },
   showPopup() {
-    this.setData({ show: true });
+    this.setData({
+      show: true
+    });
   },
-
+  getNumber: function (e) {
+    var value = e.detail.value
+    this.setData({
+      n: value
+    })
+  },
   onClose() {
-    this.setData({ show: false });
+    this.setData({
+      show: false
+    });
   },
-  aa: function(e){
+  aa: function (e) {
     console.log("进入了tap_ch函数")
-    if(this.data.open){
+    if (this.data.open) {
       console.log(this.data.open)
       this.setData({
-        open : false
+        open: false
       });
       console.log(this.data.open)
-    }else{
+    } else {
       console.log(this.data.open)
       this.setData({
-        open : true
+        open: true
       });
       console.log(this.data.open)
     }
   },
-  changePlay(){
+  changePlay() {
     let flag = !this.data.play;
     this.setData({
-      play:flag
+      play: flag
     });
     //start title
     let titleOpenAn = wx.createAnimation({
@@ -50,7 +64,7 @@ Page({
     });
     titleOpenAn.opacity(0).step();
     this.setData({
-      titleOpenAn:titleOpenAn.export()
+      titleOpenAn: titleOpenAn.export()
     });
     let titleCloseAn = wx.createAnimation({
       duration: 300,
@@ -60,7 +74,7 @@ Page({
     });
     titleCloseAn.opacity(1).step();
     this.setData({
-      titleCloseAn:titleCloseAn.export()
+      titleCloseAn: titleCloseAn.export()
     });
     //end title
     // start 第一条line
@@ -72,7 +86,7 @@ Page({
     });
     line1OpenAn.translateY(12).rotate(45).scale(1.4, 1).step();
     this.setData({
-      line1OpenAn:line1OpenAn.export()
+      line1OpenAn: line1OpenAn.export()
     });
     let line1CloseAn = wx.createAnimation({
       duration: 300,
@@ -82,7 +96,7 @@ Page({
     });
     line1CloseAn.translateY(0).rotate(0).scale(1, 1).step();
     this.setData({
-      line1CloseAn:line1CloseAn.export()
+      line1CloseAn: line1CloseAn.export()
     });
     //end 第一条line
 
@@ -95,7 +109,7 @@ Page({
     });
     line2OpenAn.translateY(-6.5).translateX(-1).rotate(-45).scale(1.4, 1).step();
     this.setData({
-      line2OpenAn:line2OpenAn.export()
+      line2OpenAn: line2OpenAn.export()
     });
 
     let line2CloseAn = wx.createAnimation({
@@ -106,7 +120,7 @@ Page({
     });
     line2CloseAn.translateY(0).rotate(0).scale(1, 1).step();
     this.setData({
-      line2CloseAn:line2CloseAn.export()
+      line2CloseAn: line2CloseAn.export()
     });
     //end 第二条line
 
@@ -119,7 +133,7 @@ Page({
     });
     btn1Open.translateX(-60).opacity(1).step();
     this.setData({
-      btn1Open:btn1Open.export()
+      btn1Open: btn1Open.export()
     });
 
     let btn1Close = wx.createAnimation({
@@ -130,7 +144,7 @@ Page({
     });
     btn1Close.translateX(0).opacity(0).step();
     this.setData({
-      btn1Close:btn1Close.export()
+      btn1Close: btn1Close.export()
     });
     //end 第一个按钮
     //start 第二个按钮
@@ -142,7 +156,7 @@ Page({
     });
     btn2Open.translateX(-120).opacity(1).step();
     this.setData({
-      btn2Open:btn2Open.export()
+      btn2Open: btn2Open.export()
     });
 
     let btn2Close = wx.createAnimation({
@@ -153,7 +167,7 @@ Page({
     });
     btn2Close.translateX(0).opacity(0).step();
     this.setData({
-      btn2Close:btn2Close.export()
+      btn2Close: btn2Close.export()
     });
     //end 第二个按钮
     //start 第三个按钮
@@ -165,7 +179,7 @@ Page({
     });
     btn3Open.translateX(-180).opacity(1).step();
     this.setData({
-      btn3Open:btn3Open.export()
+      btn3Open: btn3Open.export()
     });
 
     let btn3Close = wx.createAnimation({
@@ -176,7 +190,7 @@ Page({
     });
     btn3Close.translateX(0).opacity(0).step();
     this.setData({
-      btn3Close:btn3Close.export()
+      btn3Close: btn3Close.export()
     });
     //end 第三个按钮
     //start 第四个按钮
@@ -188,7 +202,7 @@ Page({
     });
     btn4Open.translateX(-240).opacity(1).step();
     this.setData({
-      btn4Open:btn4Open.export()
+      btn4Open: btn4Open.export()
     });
 
     let btn4Close = wx.createAnimation({
@@ -199,11 +213,11 @@ Page({
     });
     btn4Close.translateX(0).opacity(0).step();
     this.setData({
-      btn4Close:btn4Close.export()
+      btn4Close: btn4Close.export()
     });
     //end 第四个按钮
   },
-  tochat:function(){
+  tochat: function () {
     wx.navigateTo({
       url: '../chat/chat',
     })
@@ -213,105 +227,129 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    this.getOpenid();
     db.collection("book").where({
-      type:"启蒙"
+      type: "启蒙"
     }).get({
-      success:function(res){
+      success: function (res) {
         that.setData({
-          list:res.data
+          list: res.data
         })
-      },fail:function(res){
+      },
+      fail: function (res) {
         console.log("提取数据库 error")
       }
     })
+
   },
-  selectqimen:function(){
+  selectqimen: function () {
     var that = this;
     db.collection("book").where({
-      type:"启蒙"
+      type: "启蒙"
     }).get({
-      success:function(res){
+      success: function (res) {
         that.setData({
-          list:res.data
+          list: res.data
         })
-      },fail:function(res){
+      },
+      fail: function (res) {
         console.log("提取数据库 error")
       }
     })
   },
-  selectsixian:function(){
+  selectsixian: function () {
     var that = this;
     db.collection("book").where({
-      type:"思想"
+      type: "思想"
     }).get({
-      success:function(res){
+      success: function (res) {
         that.setData({
-          list:res.data
+          list: res.data
         })
-      },fail:function(res){
+      },
+      fail: function (res) {
         console.log("提取数据库 error")
       }
     })
   },
-  fabu:function(){
+  fabu: function () {
     wx.navigateTo({
       url: '../fabu/fabu',
     })
   },
-  chakanfabu:function(){
+  chakanfabu: function () {
     wx.navigateTo({
       url: '../chakanfabu/chakanfabu',
     })
   },
-  buyCar:function(){
+  buyCar: function () {
     wx.navigateTo({
       url: '../gouwuche/gouwuche',
     })
   },
-  shouchang:function(){
+  shouchang: function () {
     wx.navigateTo({
       url: '../shouchan/shouchan',
     })
   },
-  selectkepu:function(){
+  selectkepu: function () {
     var that = this;
     db.collection("book").where({
-      type:"科普"
+      type: "科普"
     }).get({
-      success:function(res){
+      success: function (res) {
         that.setData({
-          list:res.data
+          list: res.data
         })
-      },fail:function(res){
+      },
+      fail: function (res) {
         console.log("提取数据库 error")
       }
     })
   },
-  selectlishi:function(){
+  selectlishi: function () {
     var that = this;
     db.collection("book").where({
-      type:"历史"
+      type: "历史"
     }).get({
-      success:function(res){
+      success: function (res) {
         that.setData({
-          list:res.data
+          list: res.data
         })
-      },fail:function(res){
+      },
+      fail: function (res) {
         console.log("提取数据库 error")
       }
     })
   },
-  selectkaton:function(){
+  selectkaton: function () {
     var that = this;
     db.collection("book").where({
-      type:"卡通"
+      type: "卡通"
     }).get({
-      success:function(res){
+      success: function (res) {
         that.setData({
-          list:res.data
+          list: res.data
         })
-      },fail:function(res){
+      },
+      fail: function (res) {
         console.log("提取数据库 error")
+      }
+    })
+  },
+  getOpenid: function () {
+    var that = this;
+    wx.cloud.callFunction({
+      name: 'openapi',
+      success: function (res) {
+        console.log('openid', res.result)
+        var openid = res.result.openid
+        that.setData({
+          openid: openid
+        })
+      },
+      fail: function (res) {
+        console.log("失败:" + res)
       }
     })
   },
@@ -327,7 +365,7 @@ Page({
         var city = userInfo.city
         var country = userInfo.country
         that.setData({
-          canIUse:false,
+          canIUse: false,
           nickName: Name,
           avatarUrl: avatarUrl
         })
@@ -386,7 +424,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  toDetailsTap: function(e) {
+  toDetailsTap: function (e) {
     wx.navigateTo({
       url: "/pages/qm/qm1"
     })

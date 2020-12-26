@@ -1,4 +1,4 @@
-// miniprogram/pages/chakanfabu/chakanfabu.js
+// miniprogram/pages/sousuo/sousuo.js
 const db = wx.cloud.database()
 Page({
 
@@ -7,31 +7,34 @@ Page({
    */
   data: {
     listType: 1, // 1为1个商品一行，2为2个商品一行    
-    openid: '', // 搜索关键词
+    name: '', // 搜索关键词
     orderBy: '', // 排序规则
     goods: []
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.openid)
+    console.log(options.name)
     this.setData({
-      openid: options.openid,
+      name: options.name,
     }) 
     var that = this
-    db.collection("user").where({
-      _openid:this.data.openid
+    console.log(that.data.name+".*")
+    db.collection("book").where({
+      name: db.RegExp({
+        regexp:".*"+that.data.name+".*"
+      })
     }).get({
       success: function (res) {
-        console.log(res.data[0].fabu)
+        console.log(res.data)
         that.setData({
-          goods: res.data[0].fabu
+          goods: res.data
         })
       }
     })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

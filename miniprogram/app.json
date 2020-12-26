@@ -2,13 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/qm/qm1",
-   
     "pages/chat/chat",
     "pages/fabu/fabu",
     "pages/gouwuche/gouwuche",
     "pages/shouchan/shouchan",
-
-    "pages/chakanfabu/chakanfabu"
+    "pages/chakanfabu/chakanfabu",
+    "pages/sousuo/sousuo"
   ],
   "usingComponents": {
     "i-row": "/components/iview/row/index",

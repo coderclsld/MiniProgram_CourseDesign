@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-sticky":"../../components/vant/sticky/index",
+    "van-empty":"../../components/vant/empty/index"
+  }
+}
