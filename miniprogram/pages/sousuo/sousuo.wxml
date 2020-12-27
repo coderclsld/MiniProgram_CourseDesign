@@ -18,10 +18,9 @@
   <view class="list1" wx:for="{{goods}}" wx:key="id">
     <navigator url="/pages/goods-details/index?id={{item.id}}"><image class="img" mode="aspectFill" src="{{item.fileid}}"></image></navigator>
     <view class="goods-info">
-      <view class="title ellipsis"><navigator url="/pages/goods-details/index?id={{item.id}}">{{item.name}}</navigator></view>
-      <view class="price">¥ {{item.minPrice}}</view>
+      <view class="title ellipsis"><navigator url="../qm/qm1?fileid={{item.fileid}}">{{item.name}}</navigator></view>
+      <view class="price">¥ {{item.price}}</view>
       <view class="buy-info">
-        <view class="num">已借{{item.numberSells}}次</view>
         <image class="car" src="/images/icon/car.svg" data-id="{{item.id}}" bindtap="addShopCar"></image>
       </view>
     </view>

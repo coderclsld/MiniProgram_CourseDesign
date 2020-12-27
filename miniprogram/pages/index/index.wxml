@@ -10,9 +10,6 @@
           <view style="margin-left:10rpx"><text>{{nickName}}</text></view>
         </i-row>
       </view>
-      <view class="wc" bindtap="tochat">
-        <text>聊天消息</text>
-      </view>
       <view class="wc" bindtap="fabu">
         <text>发布书籍</text>
       </view>
@@ -20,9 +17,6 @@
         <navigator url="../chakanfabu/chakanfabu?openid={{openid}}">
           <text>查看发布</text>
         </navigator>
-      </view>
-      <view class="wc">
-        <text>帮助</text>
       </view>
     </view>
   </view>
@@ -79,7 +73,7 @@
     </view>
     <view>
       <scroll-view scroll-y="true" style="height:360px" enable-flex="true">
-        <view class="a" wx:for="{{list}}" bindtap="toDetailsTap">
+        <view class="a" wx:for="{{list}}" >
           <view class="b" bindtap="jrym">
             <navigator url="../qm/qm1?fileid={{item.fileid}}">
               <image src="{{item.fileid}}" style="height:150px;width:150px;margin-left:10px;"></image>
@@ -104,11 +98,11 @@
         </view>
         <view class="menu">
           <view animation="{{ !play?btn4Close:btn2Open }}" bindtap="buyCar">
-            <navigator url="../gouwuche/gouwuche?openid={{openid}}"><text>买过的</text></navigator>
+           <text>买过的</text>
 
           </view>
           <view animation="{{ !play?btn3Close:btn1Open }}" bindtap="shouchang">
-            <navigator url="../shouchan/shouchan?openid={{openid}}"><text>收藏夹</text></navigator>
+        <text>收藏夹</text>
 
           </view>
         </view>

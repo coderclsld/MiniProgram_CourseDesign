@@ -33,6 +33,7 @@ Page({
         })
       }
     })
+    console.log(this.data.goods)
   },
 
 

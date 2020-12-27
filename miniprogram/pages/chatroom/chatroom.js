@@ -6,7 +6,7 @@ var windowHeight = wx.getSystemInfoSync().windowHeight;
 var keyHeight = 0;
 var socketOpen = false;
 var frameBuffer_Data, session, SocketTask;
-var url = 'ws://localhost:8000/imserver/';
+var url = 'ws://172.16.168.175:8000/imserver/';
 var upload_url ='http://localhost:8000/file/upload'
 
 /**
@@ -275,7 +275,7 @@ function sendSocketMessage(msg,tha) {
   var that = tha;
   var tmp = {
     message:msg,
-    toUserId: that.data.otherUserOpenid}
+    toUserId: "1"}
   console.log('通过 WebSocket 连接发送数据', JSON.stringify(tmp))
   SocketTask.send({
     data:  JSON.stringify(tmp)

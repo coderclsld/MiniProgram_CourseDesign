@@ -284,7 +284,7 @@ Page({
   },
   buyCar: function () {
     wx.navigateTo({
-      url: '../gouwuche/gouwuche',
+      url: '../gouwuche/gouwuche', 
     })
   },
   shouchang: function () {
@@ -423,10 +423,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  toDetailsTap: function (e) {
-    wx.navigateTo({
-      url: "/pages/qm/qm1"
-    })
   },
 })

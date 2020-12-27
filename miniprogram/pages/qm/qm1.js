@@ -29,30 +29,34 @@ Page({
       fileid:this.data.fileid
     }).get({
       success:function(res){
-        console.log(res.data)
+        console.log(res.data[0])
         that.setData({
           goods:res.data[0],
-          openid:res.data[0].fabuid
+          openid:res.data[0].fileid
         })
+        console.log(that.data.goods)
+        console.log(that.data.openid)
       }
     })
-    wx.cloud.callFunction({
-      name: 'openapi',
-      success: function (res) {
-        console.log('openid', res.result)
-        var openid = res.result.openid
-        that.setData({
-        })
-      },
-      fail: function (res) {
-        console.log("失败:" + res)
-      }
-    })
+    // wx.cloud.callFunction({
+    //   name: 'openapi',
+    //   success: function (res) {
+    //     console.log('openid', res.result)
+    //     var openid = res.result.openid
+    //     that.setData({
+
+    //     })
+    //   },
+    //   fail: function (res) {
+    //     console.log("失败:" + res)
+    //   }
+    // })
 
     db.collection("user").where({
-        _openid:this.data.openid
+        _openid:"off9p5H3dGHTLwC3DNqa87dxsCxc"
     }).get({
       success:function(res){
+        console.log(res.data)
         for(var i=0;i<res.data[0].shouchan.length;i++){
         if(res.data[0].shouchan[i].fileid==that.data.fileid){
           that.setData({
@@ -65,7 +69,7 @@ Page({
         },
     })   
     db.collection("user").where({
-      _openid:this.data.openid
+      _openid:"off9p5H3dGHTLwC3DNqa87dxsCxc"
   }).get({
     success:function(res){
       for(var i=0;i<res.data[0].goumai.length;i++){
@@ -78,10 +82,6 @@ Page({
       }
       },
   })   
- 
-   
-
-
   },
   shouchan:function(){
     var that=this
