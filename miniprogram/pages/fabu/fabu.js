@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['启蒙图书', '科普图书', '历史图书', '卡通图书'],
+    array: ['启蒙', '科普', '历史', '卡通'],
     name:"",
     money:"",
     leibie:"",
@@ -68,13 +68,13 @@ getNumberr: function (e) {
   })
   console.log(that.data.money)
 },
-getNumberrr: function (e) {
+
+bindPickerChange: function(e) {
   var that=this
-  var value = e.detail.value
-  this.setData({
-    leibie: value
+  console.log('picker发送选择改变，携带值为', e.detail.value)
+  that.setData({
+    leibie: e.detail.value
   })
-  console.log(that.data.leibie)
 },
 sc:function(){
   var that=this
@@ -91,7 +91,9 @@ sc:function(){
       },
       
     })
+    var l=that.data.leibie
     setTimeout(function(){
+    
    wx.cloud.callFunction({
      name:"fabu",
      data:{    
@@ -100,13 +102,14 @@ sc:function(){
       fileid:that.data.fileid,
     }
    })
-  },1000)
+  },1000) 
   setTimeout(function(){
   db.collection('book').add({
-    data:{
+    data:{ 
       fileid:that.data.fileid,
       name:that.data.name,
       price:that.data.money,
+      type:that.data.array[l]
     }
   })
 },1000)
