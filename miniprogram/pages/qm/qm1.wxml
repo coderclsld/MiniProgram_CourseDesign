@@ -17,8 +17,9 @@
 
 
   <van-goods-action wx:if="{{!curGoodsKanjia}}" >
-   <navigator url="../chatroom/chatroom?openid={{openid}}"><van-icon name="chat-o" style="margin-top:-15px;margin-left:40px;"></van-icon>
-   <view style="margin-left:-19px;margin-top:15px;font-size:12px">沟通</view>
+   <navigator url="../chatroom/chatroom?openid={{openid}}">
+   <van-icon name="chat-o" style="margin-top:-27px;margin-left:40px;"></van-icon>
+   <view style="margin-left:36px;margin-top:-5px;font-size:12px">沟通</view>
    </navigator>
    <van-icon name="{{faved?'like':'like-o'}}" style="margin-top:-15px;margin-left:40px;" wx:if="{{faved}}" bindtap="shouchan"></van-icon>
    <van-icon name="{{faved?'like':'like-o'}}" style="margin-top:-15px;margin-left:40px;" wx:else bindtap="shouchan"></van-icon>
