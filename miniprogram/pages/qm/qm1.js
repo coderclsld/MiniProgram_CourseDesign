@@ -25,14 +25,23 @@ Page({
     })
     var that = this
     console.log(this.data.fileid)
-
+    db.collection("book").where({
+      fileid:this.data.fileid
+    }).get({
+      success:function(res){
+        console.log(res.data)
+        that.setData({
+          goods:res.data[0],
+          openid:res.data[0].fabuid
+        })
+      }
+    })
     wx.cloud.callFunction({
       name: 'openapi',
       success: function (res) {
         console.log('openid', res.result)
         var openid = res.result.openid
         that.setData({
-          openid:res.result.openid
         })
       },
       fail: function (res) {
@@ -41,7 +50,7 @@ Page({
     })
 
     db.collection("user").where({
-        _openid:"off9p5H3dGHTLwC3DNqa87dxsCxc"
+        _openid:this.data.openid
     }).get({
       success:function(res){
         for(var i=0;i<res.data[0].shouchan.length;i++){
@@ -56,7 +65,7 @@ Page({
         },
     })   
     db.collection("user").where({
-      _openid:"off9p5H3dGHTLwC3DNqa87dxsCxc"
+      _openid:this.data.openid
   }).get({
     success:function(res){
       for(var i=0;i<res.data[0].goumai.length;i++){
@@ -69,16 +78,7 @@ Page({
       }
       },
   })   
-    db.collection("book").where({
-      fileid:this.data.fileid
-    }).get({
-      success:function(res){
-        console.log(res.data)
-        that.setData({
-          goods:res.data[0]
-        })
-      }
-    })
+ 
    
 
 

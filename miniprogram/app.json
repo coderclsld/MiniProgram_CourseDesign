@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/index/index",
     "pages/qm/qm1",
     "pages/chat/chat",
@@ -8,15 +7,14 @@
     "pages/gouwuche/gouwuche",
     "pages/shouchan/shouchan",
     "pages/chakanfabu/chakanfabu",
-    "pages/sousuo/sousuo"
+    "pages/sousuo/sousuo",
+    "pages/chatroom/chatroom"
   ],
   "usingComponents": {
     "i-row": "/components/iview/row/index",
     "i-col": "/components/iview/col/index"
   },
-  "window": {
-    
-  },
+  "window": {},
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }
